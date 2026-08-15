@@ -1,0 +1,30 @@
+{
+  "channelName": "Stylus & Sword",
+  "language": "English",
+  "targetAudience": "Worldwide English-speaking viewers aged 18-45",
+  "niche": [
+    "Ancient history",
+    "Archaeology",
+    "Lost civilizations",
+    "Ancient technology",
+    "Historical mysteries"
+  ],
+  "contentTypes": [
+    "Documentary",
+    "Shorts"
+  ],
+  "documentaryDurationMinutes": {
+    "minimum": 12,
+    "maximum": 20
+  },
+  "shortDurationSeconds": {
+    "minimum": 40,
+    "maximum": 50
+  },
+  "style": [
+    "Cinematic",
+    "Mystery",
+    "Educational",
+    "Story-driven"
+  ]
+}
