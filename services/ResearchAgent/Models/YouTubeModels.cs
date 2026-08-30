@@ -18,6 +18,43 @@ public class YouTubeVideo
     public string PublishedAt { get; set; } = string.Empty;
 
     public string Url { get; set; } = string.Empty;
+
+    public long Views { get; set; }
+
+    public long Likes { get; set; }
+
+    public long Comments { get; set; }
+
+    public double AgeHours { get; set; }
+
+    public double ViewsPerHour { get; set; }
+
+    public bool IsRelevant { get; set; }
+
+    public bool IsShort { get; set; }
+
+    public int RelevanceScore { get; set; }
+}
+
+public class YouTubeStatisticsResponse
+{
+    public List<YouTubeStatisticsItem> Items { get; set; } = [];
+}
+
+public class YouTubeStatisticsItem
+{
+    public string Id { get; set; } = string.Empty;
+
+    public YouTubeStatistics Statistics { get; set; } = new();
+}
+
+public class YouTubeStatistics
+{
+    public string ViewCount { get; set; } = "0";
+
+    public string LikeCount { get; set; } = "0";
+
+    public string CommentCount { get; set; } = "0";
 }
 
 public class YouTubeSearchResponse

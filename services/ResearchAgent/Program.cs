@@ -4,7 +4,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Configuration.AddJsonFile(
+    "Channel.json",
+    optional: false,
+    reloadOnChange: true);
 builder.Services.AddHttpClient<YouTubeResearchService>();
+builder.Services.AddScoped<YouTubeRelevanceService>();
+
 builder.Services.AddOpenApi();
 builder.Services.AddOpenApiDocument();
 
@@ -23,7 +29,8 @@ app.MapGet(
     "/research/youtube",
     async (
         string query,
-        YouTubeResearchService youtubeService) =>
+        YouTubeResearchService youtubeService,
+        YouTubeRelevanceService relevanceService) =>
     {
         if (string.IsNullOrWhiteSpace(query))
         {
@@ -37,6 +44,8 @@ app.MapGet(
         {
             var result =
                 await youtubeService.SearchAsync(query);
+
+            relevanceService.Analyze(result.Results);
 
             return Results.Ok(result);
         }
